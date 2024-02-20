@@ -9,7 +9,7 @@ from transliterate import translit
 
 # 2. Инициализация объектов
 TOKEN = os.getenv('TOKEN')
-bot = Bot(token=TOKEN)                        # Создаем объект бота
+bot = Bot(token="6897174789:AAH8EDJrQbgapAkdggamraRF8rGaCWAcbas")                        # Создаем объект бота
 dp = Dispatcher()                             # Создаем объект диспетчера. Все хэндлеры(обработчики) должны быть подключены к диспетчеру
 logging.basicConfig(level=logging.INFO, filename="py_log.log",filemode="w",
                     format="%(asctime)s %(levelname)s %(message)s")
@@ -34,7 +34,7 @@ async def proccess_command_start(message: Message):
 async def send_echo(message: Message):
     user_name = message.from_user.full_name
     user_id = message.from_user.id
-    text = message.text 
+    text = translit(message.text, reversed=True) 
     logging.info(f'{user_name} {user_id}: {text}')
     await message.answer(text=text)
 
