@@ -34,7 +34,12 @@ async def proccess_command_start(message: Message):
 async def send_echo(message: Message):
     user_name = message.from_user.full_name
     user_id = message.from_user.id
-    text = translit(message.text, reversed=True) 
+    def translitik(slovo):           
+         try:
+              return translit(slovo, reversed=True)
+         except:
+             return slovo
+    text=translitik(message.text)
     logging.info(f'{user_name} {user_id}: {text}')
     await message.answer(text=text)
 
