@@ -9,7 +9,7 @@ from transliterate import translit
 
 # 2. Инициализация объектов
 TOKEN = os.getenv('TOKEN')
-bot = Bot(token="6897174789:AAH8EDJrQbgapAkdggamraRF8rGaCWAcbas")                        # Создаем объект бота
+bot = Bot(token=TOKEN)                        # Создаем объект бота
 dp = Dispatcher()                             # Создаем объект диспетчера. Все хэндлеры(обработчики) должны быть подключены к диспетчеру
 logging.basicConfig(level=logging.INFO, filename="py_log.log",filemode="w",
                     format="%(asctime)s %(levelname)s %(message)s")
